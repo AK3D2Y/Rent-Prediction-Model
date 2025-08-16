@@ -12,28 +12,28 @@ data = pd.read_csv("House_Rent_Dataset.csv")
 
 df = pd.DataFrame(data)
 
-numeric_values = ['BHK','Size','Bathroom']
-categorical_values = ['Point of Contact','Floor','City', 'Furnishing Status']
+numeric_values = ['BHK', 'Size', 'Bathroom']
+categorical_values = ['Point of Contact', 'Floor', 'City', 'Furnishing Status']
 
 preprocessor = ColumnTransformer(
-    transformers= [
+    transformers=[
         ("numeric", StandardScaler(), numeric_values),
         ("categorical", OneHotEncoder(handle_unknown="ignore"), categorical_values)
     ]
 )
-model = Pipeline(steps= [("preprocessor", preprocessor),
-                         ("regressor", DecisionTreeRegressor(
-                             random_state=42,
-                             max_depth=10,
-                             min_samples_split=20,
-                             min_samples_leaf=14
-                         ))]
+model = Pipeline(steps=[("preprocessor", preprocessor),
+                        ("regressor", DecisionTreeRegressor(
+                            random_state=42,
+                            max_depth=10,
+                            min_samples_split=20,
+                            min_samples_leaf=14
+                        ))]
                  )
 
 X = df[numeric_values + categorical_values]
 y = df["Rent"]
 
-X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
