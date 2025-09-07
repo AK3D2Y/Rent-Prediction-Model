@@ -7,6 +7,7 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import StandardScaler
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
+import joblib
 
 data = pd.read_csv("House_Rent_Dataset.csv")
 
@@ -42,3 +43,4 @@ rmse = mean_squared_error(y_test, y_pred, squared=False)
 
 print(f"RMSE : {rmse}")
 print("R_Squared : ", r2_score(y_test, y_pred))
+joblib.dump(model, "rent-model.pkl")
