@@ -102,7 +102,7 @@ if model is not None:
     col1, col2, col3 = st.columns([1, 2, 1])
 
     with col2:
-        if st.button("🔮 Predict Rent", type="primary", use_container_width=True):
+        if st.button("💰 Predict Rent", type="primary", use_container_width=True):
             # Create input dataframe
             input_data = pd.DataFrame({
                 'BHK': [bhk],
