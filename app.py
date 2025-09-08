@@ -84,11 +84,11 @@ if model is not None:
 
         # City
         city_options = ["Mumbai", "Chennai", "Bangalore", "Hyderabad", "Delhi",
-                        "Kolkata", "Pune", "Ahmedabad", "Surat", "Jaipur"]
+                        "Kolkata"]
         city = st.selectbox(
             "City",
             options=city_options,
-            index=2  # default to Bangalore
+            index=3  # default to Hyderabad
         )
 
         # Furnishing Status
