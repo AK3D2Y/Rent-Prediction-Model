@@ -38,7 +38,7 @@ pip install streamlit pandas scikit-learn joblib numpy
 Launch the app:
 
 Visit the deployed app on Streamlit Cloud:
-👉 Live Demo Link Here
+https://rent-prediction-model.streamlit.app/
 
 📊 Model Performance
 
