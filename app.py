@@ -15,7 +15,7 @@ st.set_page_config(
 )
 
 # Title and description
-st.title("🏠 House Rent Prediction App")
+st.title("🏠 House Rent Prediction Demo")
 st.markdown("---")
 st.write("Enter the details of your house to get an estimated rent prediction.")
 
