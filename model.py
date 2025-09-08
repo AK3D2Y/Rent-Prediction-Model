@@ -14,7 +14,7 @@ data = pd.read_csv("House_Rent_Dataset.csv")
 df = pd.DataFrame(data)
 
 numeric_values = ['BHK', 'Size', 'Bathroom']
-categorical_values = ['Point of Contact', 'Floor', 'City', 'Furnishing Status']
+categorical_values = ['Point of Contact','Floor', 'City', 'Furnishing Status']
 
 preprocessor = ColumnTransformer(
     transformers=[
