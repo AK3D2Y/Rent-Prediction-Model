@@ -1,6 +1,6 @@
 # Indian City Rent Prediction Engine
 
-**Live Demo:** [Link to your Streamlit App]
+**Live Demo:** [https://rent-prediction-model.streamlit.app/]
 
 ##  Project Overview
 Finding fair rental prices in Indian metros is chaotic due to unstandardized listing data. This project is an end-to-end Machine Learning web application that estimates fair market value for residential properties in 5 major Indian cities (Mumbai, Bangalore, Hyderabad, Delhi, Chennai).
