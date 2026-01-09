@@ -1,61 +1,41 @@
-🏠 House Rent Prediction App
+# Indian City Rent Prediction Engine
 
-A web application that predicts house rent prices in major Indian cities using machine learning. Simply input your property details and get an instant rent estimate!
+**Live Demo:** [Link to your Streamlit App]
 
-🎯 What It Does
+##  Project Overview
+Finding fair rental prices in Indian metros is chaotic due to unstandardized listing data. This project is an end-to-end Machine Learning web application that estimates fair market value for residential properties in 5 major Indian cities (Mumbai, Bangalore, Hyderabad, Delhi, Chennai).
 
-This app estimates monthly rent for residential properties based on:
+Built with **Python**, **Scikit-Learn Pipelines**, and **Streamlit**.
 
-Number of bedrooms (BHK)
+##  Technical Architecture
+The system uses a robust `sklearn.pipeline.Pipeline` to ensure training and inference data undergo identical preprocessing, preventing data leakage.
 
-Property size in square feet
+### The Pipeline Steps:
+1.  **Data Ingestion:** Loads raw real estate data.
+2.  **Preprocessing (`ColumnTransformer`):**
+    * **Numeric Features:** Applied `StandardScaler` to `BHK`, `Size`, and `Bathroom` to normalize variance.
+    * **Categorical Features:** Applied `OneHotEncoder` (with `handle_unknown='ignore'`) to `City`, `Furnishing Status`, `Floor`, and `Point of Contact`.
+3.  **Modeling:**
+    * **Algorithm:** `DecisionTreeRegressor`
+    * **Hyperparameter Tuning:** Optimized tree structure to prevent overfitting:
+        * `max_depth=10` (Limits complexity)
+        * `min_samples_leaf=14` (Ensures generalization)
+        * `min_samples_split=20` (Prevents isolating outliers)
+4.  **Deployment:** Model serialized via `joblib` and served through a Streamlit frontend.
 
-Number of bathrooms
+##  Model Performance
+* **Metric:** RMSE (Root Mean Squared Error) and R² Score.
+* **Performance:** The Decision Tree captures non-linear price jumps (e.g., the sudden spike in rent for "Fully Furnished" vs "Unfurnished") better than linear baselines.
+* **Key Insight:** "Size" and "City" were the dominant feature importances, while "Point of Contact" helped identify broker-inflated prices.
 
-Floor level and city location
+##  Tech Stack
+* **Core:** Python 3.9+
+* **ML Libraries:** Scikit-learn, Pandas, NumPy
+* **Preprocessing:** `ColumnTransformer`, `StandardScaler`, `OneHotEncoder`
+* **Frontend:** Streamlit
 
-Furnishing status
+##  How to Run Locally
 
-✨ Features
-
-Easy to Use: Clean web interface with dropdown menus
-
-Instant Results: Get rent predictions in seconds
-
-Detailed Output: Shows total rent and per square foot rates
-
-Multiple Cities: Supports major Indian cities like Mumbai, Bangalore, Delhi, Chennai, and Hyderabad
-
-Mobile Friendly: Works on both desktop and mobile devices
-
-🚀 How to Run
-
-Install requirements (for local runs):
-
-pip install streamlit pandas scikit-learn joblib numpy
-
-
-Launch the app:
-
-Visit the deployed app on Streamlit Cloud:
-https://rent-prediction-model.streamlit.app/
-
-📊 Model Performance
-
-R² Score: ~0.65 (explains ~65% of rent variation)
-
-Training Data: House rental dataset from major Indian cities
-
-Accuracy: Provides reliable ballpark estimates
-
-💡 Use Cases
-
-Tenants: Estimate fair rent before apartment hunting
-
-Landlords: Price properties competitively
-
-Real Estate: Quick rent insights for clients
-
-Students: Learning project for ML + web development
-
-⭐ If you find this project useful, consider starring the repo! ⭐
+1. **Clone the repository**
+   ```bash
+   git clone [https://github.com/AK3D2Y/Rent-Prediction-Model.git](https://github.com/AK3D2Y/Rent-Prediction-Model.git)
